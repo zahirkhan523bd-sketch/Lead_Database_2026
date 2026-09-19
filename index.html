@@ -1,658 +1,657 @@
-    body.star-universe-bg {
-        background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
-        color: #fff;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        margin: 0;
-        padding: 0;
-        min-height: 100vh;
-        overflow-x: hidden;
-    }
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ডেলি লিড ক্রয়-2026 | Star World</title>
+    <style>
+        :root {
+            --primary-glow: #00ffff;
+            --secondary-glow: #ff00ff;
+            --accent-gold: #ffcc00;
+            --bg-dark: #050510;
+        }
 
-    /* স্টার ওয়ার্ল্ড অ্যানিমেশন ব্যাকগ্রাউন্ড */
-    body::after {
-        content: "";
-        position: fixed;
-        top: 0; left: 0; width: 100%; height: 100%;
-        background-image: radial-gradient(white 1px, transparent 0);
-        background-size: 40px 40px;
-        opacity: 0.25;
-        animation: starsMove 50s linear infinite;
-        z-index: -1;
-    }
+        body.star-universe-bg {
+            background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+            color: #fff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
 
-    @keyframes starsMove {
-        from { transform: translateY(0); }
-        to { transform: translateY(-1000px); }
-    }
+        body::after {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: radial-gradient(white 1px, transparent 0);
+            background-size: 40px 40px;
+            opacity: 0.25;
+            animation: starsMove 50s linear infinite;
+            z-index: -1;
+        }
 
-    header.neon-header {
-        text-align: center;
-        padding: 25px;
-        background: rgba(0, 0, 0, 0.4);
-        border-bottom: 1px solid rgba(0, 255, 255, 0.2);
-    }
+        @keyframes starsMove {
+            from { transform: translateY(0); }
+            to { transform: translateY(-1000px); }
+        }
 
-    .animated-title {
-        font-size: 2.8rem;
-        margin: 0;
-        animation: colorGlow 3s infinite alternate;
-    }
+        header.neon-header {
+            text-align: center;
+            padding: 25px;
+            background: rgba(0, 0, 0, 0.4);
+            border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+        }
 
-    @keyframes colorGlow {
-        0% { color: #00ffff; text-shadow: 0 0 15px #00ffff; }
-        50% { color: #ff00ff; text-shadow: 0 0 25px #ff00ff; }
-        100% { color: #ffff00; text-shadow: 0 0 15px #ffff00; }
-    }
+        .animated-title {
+            font-size: 2.8rem;
+            margin: 0;
+            animation: colorGlow 3s infinite alternate;
+        }
 
-    .glow-subtitle {
-        font-size: 1.6rem;
-        color: #ff9900;
-        text-shadow: 0 0 15px #ff9900;
-        margin-top: 5px;
-        font-weight: bold;
-    }
+        @keyframes colorGlow {
+            0% { color: #00ffff; text-shadow: 0 0 15px #00ffff; }
+            50% { color: #ff00ff; text-shadow: 0 0 25px #ff00ff; }
+            100% { color: #ffff00; text-shadow: 0 0 15px #ffff00; }
+        }
 
-    .container {
-        max-width: 1200px;
-        margin: auto;
-        padding: 20px;
-    }
+        .glow-subtitle {
+            font-size: 1.6rem;
+            color: #ff9900;
+            text-shadow: 0 0 15px #ff9900;
+            margin-top: 5px;
+            font-weight: bold;
+        }
 
-    .glass-card {
-        background: rgba(255, 255, 255, 0.05);
-        backdrop-filter: blur(12px);
-        border: 1px solid rgba(255, 255, 255, 0.15);
-        padding: 25px;
-        border-radius: 15px;
-        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
-        margin-bottom: 20px;
-    }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
 
-    input, select, textarea {
-        width: 100%;
-        padding: 12px;
-        margin: 8px 0;
-        background: rgba(0, 0, 0, 0.6);
-        border: 1px solid var(--primary-glow);
-        color: #fff;
-        border-radius: 6px;
-        box-sizing: border-box;
-        outline: none;
-    }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+            margin-bottom: 20px;
+        }
 
-    input:focus {
-        border-color: var(--secondary-glow);
-        box-shadow: 0 0 10px var(--secondary-glow);
-    }
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid var(--primary-glow);
+            color: #fff;
+            border-radius: 6px;
+            box-sizing: border-box;
+            outline: none;
+        }
 
-    button {
-        background: linear-gradient(45deg, #00dbde, #fc00ff);
-        border: none;
-        padding: 12px 20px;
-        color: white;
-        font-weight: bold;
-        border-radius: 25px;
-        cursor: pointer;
-        box-shadow: 0 0 10px #fc00ff;
-        transition: 0.3s;
-        margin-top: 10px;
-    }
+        input:focus {
+            border-color: var(--secondary-glow);
+            box-shadow: 0 0 10px var(--secondary-glow);
+        }
 
-    button:hover {
-        box-shadow: 0 0 20px #00dbde;
-        transform: scale(1.02);
-    }
+        button {
+            background: linear-gradient(45deg, #00dbde, #fc00ff);
+            border: none;
+            padding: 12px 20px;
+            color: white;
+            font-weight: bold;
+            border-radius: 25px;
+            cursor: pointer;
+            box-shadow: 0 0 10px #fc00ff;
+            transition: 0.3s;
+            margin-top: 10px;
+        }
 
-    .ticker-container {
-        background: rgba(0, 0, 0, 0.85);
-        border-top: 2px solid var(--primary-glow);
-        border-bottom: 2px solid var(--primary-glow);
-        overflow: hidden;
-        white-space: nowrap;
-        padding: 12px 0;
-        margin: 20px 0;
-    }
+        button:hover {
+            box-shadow: 0 0 20px #00dbde;
+            transform: scale(1.02);
+        }
 
-    .ticker-text {
-        display: inline-block;
-        padding-left: 100%;
-        animation: ticker 20s linear infinite;
-        font-size: 1.1rem;
-        font-weight: bold;
-        background: linear-gradient(90deg, #ff00ff, #00ffff, #ffff00);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
+        .ticker-container {
+            background: rgba(0, 0, 0, 0.85);
+            border-top: 2px solid var(--primary-glow);
+            border-bottom: 2px solid var(--primary-glow);
+            overflow: hidden;
+            white-space: nowrap;
+            padding: 12px 0;
+            margin: 20px 0;
+        }
 
-    @keyframes ticker {
-        0% { transform: translate(0, 0); }
-        100% { transform: translate(-100%, 0); }
-    }
+        .ticker-text {
+            display: inline-block;
+            padding-left: 100%;
+            animation: ticker 20s linear infinite;
+            font-size: 1.1rem;
+            font-weight: bold;
+            background: linear-gradient(90deg, #ff00ff, #00ffff, #ffff00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-    .grid-buttons {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
-        margin: 20px 0;
-    }
+        @keyframes ticker {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-100%, 0); }
+        }
 
-    .user-btn {
-        background: rgba(0, 255, 255, 0.15);
-        border: 1px solid var(--primary-glow);
-        padding: 10px 20px;
-        border-radius: 20px;
-        color: #fff;
-        cursor: pointer;
-        transition: 0.2s;
-    }
+        .grid-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 20px 0;
+        }
 
-    .user-btn:hover {
-        background: var(--primary-glow);
-        color: #000;
-    }
+        .user-btn {
+            background: rgba(0, 255, 255, 0.15);
+            border: 1px solid var(--primary-glow);
+            padding: 10px 20px;
+            border-radius: 20px;
+            color: #fff;
+            cursor: pointer;
+            transition: 0.2s;
+        }
 
-    .hidden { display: none !important; }
+        .user-btn:hover {
+            background: var(--primary-glow);
+            color: #000;
+        }
 
-    .profile-header {
-        display: flex;
-        align-items: center;
-        gap: 20px;
-        border-bottom: 2px solid rgba(255,255,255,0.1);
-        padding-bottom: 20px;
-        margin-bottom: 20px;
-    }
+        .hidden { display: none !important; }
 
-    .avatar-box {
-        width: 100px;
-        height: 100px;
-        border-radius: 50%;
-        background: linear-gradient(135deg, #00dbde, #fc00ff);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 2.5rem;
-        font-weight: bold;
-        color: #fff;
-        box-shadow: 0 0 15px var(--primary-glow);
-        overflow: hidden;
-        position: relative;
-    }
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            border-bottom: 2px solid rgba(255,255,255,0.1);
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
 
-    .avatar-box img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
+        .avatar-box {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #00dbde, #fc00ff);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #fff;
+            box-shadow: 0 0 15px var(--primary-glow);
+            overflow: hidden;
+            position: relative;
+        }
 
-    .stats-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 15px;
-        margin-top: 20px;
-    }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
 
-    .stat-card {
-        background: rgba(0, 0, 0, 0.5);
-        border: 1px solid rgba(255,255,255,0.1);
-        padding: 15px;
-        border-radius: 10px;
-        text-align: center;
-    }
+        .stat-card {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+        }
 
-    .stat-card h3 { margin: 0 0 5px 0; color: var(--accent-gold); font-size: 1.1rem; }
-    .stat-card p { margin: 0; font-size: 1.4rem; font-weight: bold; }
+        .stat-card h3 { margin: 0 0 5px 0; color: var(--accent-gold); font-size: 1.1rem; }
+        .stat-card p { margin: 0; font-size: 1.4rem; font-weight: bold; }
 
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 15px;
-    }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
 
-    th, td {
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        padding: 10px;
-        text-align: center;
-    }
+        th, td {
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 10px;
+            text-align: center;
+        }
 
-    th { background: rgba(0, 255, 255, 0.2); }
-</style>
+        th { background: rgba(0, 255, 255, 0.2); }
+    </style>
+</head>
+<body class="star-universe-bg">
 
+    <header class="neon-header">
+        <h1 class="animated-title">ডেলি লিড ক্রয়-2026</h1>
+        <p class="glow-subtitle">জহিরুল ইসলাম</p>
+    </header>
 
-<header class="neon-header">
-    <h1 class="animated-title">ডেলি লিড ক্রয়-2026</h1>
-    <p class="glow-subtitle">জহিরুল ইসলাম</p>
-</header>
+    <div class="container">
+        <div id="top-nav" class="hidden" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+            <button onclick="goHome()" style="background: #333; border: 1px solid #fff;">🏠 হোম পেজ</button>
+            <span id="logged-user-info" style="font-weight: bold; color: var(--primary-glow);"></span>
+            <button onclick="logout()" style="background: #ff4444;">লগআউট</button>
+        </div>
 
-<div class="container">
-    <!-- নেভিগেশন ও লগআউট বার -->
-    <div id="top-nav" class="hidden" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-        <button onclick="goHome()" style="background: #333; border: 1px solid #fff;">🏠 হোম পেজ</button>
-        <span id="logged-user-info" style="font-weight: bold; color: var(--primary-glow);"></span>
-        <button onclick="logout()" style="background: #ff4444;">লগআউট</button>
-    </div>
+        <div id="home-view">
+            <div id="auth-box" class="glass-card" style="max-width: 400px; margin: 20px auto;">
+                <h2>সাইন আপ / লগইন</h2>
+                <form id="authForm">
+                    <input type="text" id="inputName" placeholder="আপনার নাম" required>
+                    <input type="email" id="inputEmail" placeholder="ইমেল অ্যাড্রেস" required>
+                    <input type="text" id="inputPhone" placeholder="ফোন নম্বর" required>
+                    <input type="password" id="inputPassword" placeholder="পাসওয়ার্ড (৬-১০ ডিজিট)" minlength="6" maxlength="10" required>
+                    <div style="background: rgba(0,0,0,0.5); padding: 10px; border-radius: 5px; margin: 10px 0; text-align: center;">
+                        <span id="captchaDisplay" style="font-weight: bold; color: var(--accent-gold);"></span>
+                        <input type="number" id="captchaInput" placeholder="ক্যাপচা ফলাফল লিখুন" required style="margin-top: 5px;">
+                    </div>
+                    <button type="submit" style="width: 100%;">প্রবেশ করুন</button>
+                </form>
+            </div>
 
-    <!-- ১. হোম পেজ / লগইন সেকশন -->
-    <div id="home-view">
-        <div id="auth-box" class="glass-card" style="max-width: 400px; margin: 20px auto;">
-            <h2>সাইন আপ / লগইন</h2>
-            <form id="authForm">
-                <input type="text" id="inputName" placeholder="আপনার নাম" required>
-                <input type="email" id="inputEmail" placeholder="ইমেল অ্যাড্রেস" required>
-                <input type="text" id="inputPhone" placeholder="ফোন নম্বর" required>
-                <input type="password" id="inputPassword" placeholder="পাসওয়ার্ড (৬-১০ ডিজিট)" minlength="6" maxlength="10" required>
-                <div style="background: rgba(0,0,0,0.5); padding: 10px; border-radius: 5px; margin: 10px 0; text-align: center;">
-                    <span id="captchaDisplay" style="font-weight: bold; color: var(--accent-gold);"></span>
-                    <input type="number" id="captchaInput" placeholder="ক্যাপচা ফলাফল লিখুন" required style="margin-top: 5px;">
+            <div class="ticker-container">
+                <div class="ticker-text" id="liveTicker">স্টার ওয়ার্ল্ড সিস্টেমে স্বাগতম! ডেটা সিঙ্ক হচ্ছে...</div>
+            </div>
+
+            <div class="glass-card">
+                <h3>সকল সাইন-আপকৃত ইউজারদের তালিকা</h3>
+                <div id="userButtonsList" class="grid-buttons"></div>
+            </div>
+
+            <div style="text-align: center; margin-top: 20px;">
+                <button onclick="openAdminLogin()" style="background: linear-gradient(45deg, #ff9900, #ff0055);">এডমিন প্যানেল প্রবেশ</button>
+            </div>
+        </div>
+
+        <div id="profile-view" class="glass-card hidden">
+            <div class="profile-header">
+                <div class="avatar-box" id="profileAvatar">U</div>
+                <div>
+                    <h1 id="profileName" style="margin: 0; color: var(--primary-glow);">ইউজার নাম</h1>
+                    <p id="profilePhone" style="margin: 5px 0; color: #ccc;"></p>
+                    <h3 style="margin: 5px 0; color: var(--accent-gold);">টোটাল টাকা: <span id="profileTotalTaka">০</span> টাকা</h3>
                 </div>
-                <button type="submit" style="width: 100%;">প্রবেশ করুন</button>
-            </form>
-        </div>
-
-        <!-- অ্যানিমেটেড নিউজ টিকার আপডেট -->
-        <div class="ticker-container">
-            <div class="ticker-text" id="liveTicker">স্টার ওয়ার্ল্ড সিস্টেমে স্বাগতম! ডেটা সিঙ্ক হচ্ছে...</div>
-        </div>
-
-        <!-- ইউজার বাটন লিস্ট -->
-        <div class="glass-card">
-            <h3>সকল সাইন-আপকৃত ইউজারদের তালিকা</h3>
-            <div id="userButtonsList" class="grid-buttons"></div>
-        </div>
-
-        <!-- এডমিন প্যানেল ট্রিগার বাটন -->
-        <div style="text-align: center; margin-top: 20px;">
-            <button onclick="openAdminLogin()" style="background: linear-gradient(45deg, #ff9900, #ff0055);">এডমিন প্যানেল প্রবেশ</button>
-        </div>
-    </div>
-
-    <!-- ২. ইউজার প্রোফাইল ভিউ -->
-    <div id="profile-view" class="glass-card hidden">
-        <div class="profile-header">
-            <div class="avatar-box" id="profileAvatar">U</div>
-            <div>
-                <h1 id="profileName" style="margin: 0; color: var(--primary-glow);">ইউজার নাম</h1>
-                <p id="profilePhone" style="margin: 5px 0; color: #ccc;"></p>
-                <h3 style="margin: 5px 0; color: var(--accent-gold);">টোটাল টাকা: <span id="profileTotalTaka">০</span> টাকা</h3>
             </div>
-        </div>
 
-        <div class="stats-grid">
-            <div class="stat-card">
-                <h3>ডেলি লিড জমা মোট</h3>
-                <p id="statTotalLead">০</p>
-            </div>
-            <div class="stat-card">
-                <h3>সমস্যা লিড মোট</h3>
-                <p id="statProblemLead">০</p>
-            </div>
-            <div class="stat-card">
-                <h3>কাজের মান (কোয়ালিটি)</h3>
-                <p id="statQuality">১০০%</p>
-            </div>
-        </div>
-
-        <h3 style="margin-top: 30px;">কাজের হিস্ট্রি (শুরু থেকে শেষ)</h3>
-        <div style="overflow-x: auto;">
-            <table>
-                <thead>
-                    <tr>
-                        <th>তারিখ</th>
-                        <th>মোট লিড</th>
-                        <th>সমস্যা</th>
-                        <th>আজকের দর</th>
-                        <th>মোট টাকা</th>
-                        <th>জমা</th>
-                        <th>বকেয়া</th>
-                    </tr>
-                </thead>
-                <tbody id="profileHistoryTable"></tbody>
-            </table>
-        </div>
-    </div>
-
-    <!-- ৩. এডমিন প্যানেল -->
-    <div id="admin-view" class="glass-card hidden">
-        <h2>⚙️ এডমিন কন্ট্রোল প্যানেল</h2>
-        <div style="display: flex; gap: 10px; margin-bottom: 20px;">
-            <button onclick="switchAdminTab('leads')">লিড এ্যাড ও ম্যানেজমেন্ট</button>
-            <button onclick="switchAdminTab('users')">ইউজার হিস্ট্রি ও ডিভাইস ইনফো</button>
-            <button onclick="switchAdminTab('manualUser')">ম্যানুয়াল ইউজার এ্যাড</button>
-        </div>
-
-        <!-- ট্যাব ১: লিড এ্যাড -->
-        <div id="adminTabLeads">
-            <h3>নতুন লিড এন্ট্রি করুন</h3>
-            <form id="leadForm">
-                <label>সেলার নাম সিলেক্ট করুন:</label>
-                <select id="leadSellerSelect" onchange="onSellerSelectChange()" required>
-                    <option value="">-- ইউজার সিলেক্ট করুন --</option>
-                </select>
-                <p>ফোন নম্বর: <span id="leadDisplayPhone" style="color: var(--accent-gold);">-</span></p>
-                <p>ঠিকানা: <input type="text" id="leadDisplayAddress" placeholder="ঠিকানা লিখুন" required></p>
-
-                <label>লিড জমার তারিখ:</label>
-                <input type="date" id="leadDate" required>
-
-                <label>লিডের পরিমান:</label>
-                <input type="number" id="leadTotalCount" placeholder="উদাঃ ৫০" oninput="calculateLeadValues()" required>
-
-                <label>সমস্যার পরিমান:</label>
-                <input type="number" id="leadProblemCount" placeholder="উদাঃ ৫" oninput="calculateLeadValues()" required>
-
-                <label>আজকের দর (প্রতি লিড):</label>
-                <input type="number" id="leadDailyRate" placeholder="উদাঃ ১০০" oninput="calculateLeadValues()" required>
-
-                <div style="background: rgba(0,0,0,0.3); padding: 15px; border-radius: 8px; margin: 10px 0;">
-                    <p>টোটাল টাকা: <span id="calcTotalTaka" style="color: var(--primary-glow); font-weight: bold;">০</span></p>
-                    <label>আজকে জমা দেওয়া টাকা:</label>
-                    <input type="number" id="leadTodayPaid" placeholder="উদাঃ ৩০০০" oninput="calculateLeadValues()" required>
-                    <p>বকেয়া / অবশিষ্ট: <span id="calcDueTaka" style="color: #ff4444; font-weight: bold;">০</span></p>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>ডেলি লিড জমা মোট</h3>
+                    <p id="statTotalLead">০</p>
                 </div>
+                <div class="stat-card">
+                    <h3>সমস্যা লিড মোট</h3>
+                    <p id="statProblemLead">০</p>
+                </div>
+                <div class="stat-card">
+                    <h3>কাজের মান (কোয়ালিটি)</h3>
+                    <p id="statQuality">১০০%</p>
+                </div>
+            </div>
 
-                <button type="submit">লিড সেভ ও গুগল শিটে সিঙ্ক করুন</button>
-            </form>
-        </div>
-
-        <!-- ট্যাব ২: ইউজার হিস্ট্রি ও ডিভাইস ইনফো -->
-        <div id="adminTabUsers" class="hidden">
-            <h3>সকল সাইন-আপকৃত ইউজারের ডিটেইলস ও ডিভাইস ইনফো</h3>
+            <h3 style="margin-top: 30px;">কাজের হিস্ট্রি (শুরু থেকে শেষ)</h3>
             <div style="overflow-x: auto;">
                 <table>
                     <thead>
                         <tr>
-                            <th>নাম</th>
-                            <th>ইমেল</th>
-                            <th>ফোন</th>
-                            <th>পাসওয়ার্ড</th>
-                            <th>ডিভাইস/আইপি লোকেশন</th>
+                            <th>তারিখ</th>
+                            <th>মোট লিড</th>
+                            <th>সমস্যা</th>
+                            <th>আজকের দর</th>
+                            <th>মোট টাকা</th>
+                            <th>জমা</th>
+                            <th>বকেয়া</th>
                         </tr>
                     </thead>
-                    <tbody id="adminUsersHistoryTable"></tbody>
+                    <tbody id="profileHistoryTable"></tbody>
                 </table>
             </div>
         </div>
 
-        <!-- ট্যাব ৩: ম্যানুয়াল ইউজার এ্যাড -->
-        <div id="adminTabManualUser" class="hidden">
-            <h3>ম্যানুয়ালি নতুন ইউজার যুক্ত করুন</h3>
-            <form id="manualUserForm">
-                <input type="text" id="mName" placeholder="নাম" required>
-                <input type="text" id="mPhone" placeholder="ফোন নম্বর" required>
-                <input type="email" id="mEmail" placeholder="ইমেল" required>
-                <input type="password" id="mPassword" placeholder="পাসওয়ার্ড (৬-১০ ডিজিট)" minlength="6" maxlength="10" required>
-                <button type="submit">ইউজার সেভ করুন</button>
-            </form>
+        <div id="admin-view" class="glass-card hidden">
+            <h2>⚙️ এডমিন কন্ট্রোল প্যানেল</h2>
+            <div style="display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap;">
+                <button onclick="switchAdminTab('leads')">লিড এ্যাড ও ম্যানেজমেন্ট</button>
+                <button onclick="switchAdminTab('users')">ইউজার হিস্ট্রি ও ডিভাইস ইনফো</button>
+                <button onclick="switchAdminTab('manualUser')">ম্যানুয়াল ইউজার এ্যাড</button>
+            </div>
+
+            <div id="adminTabLeads">
+                <h3>নতুন লিড এন্ট্রি করুন</h3>
+                <form id="leadForm">
+                    <label>সেলার নাম সিলেক্ট করুন:</label>
+                    <select id="leadSellerSelect" onchange="onSellerSelectChange()" required>
+                        <option value="">-- ইউজার সিলেক্ট করুন --</option>
+                    </select>
+                    <p>ফোন নম্বর: <span id="leadDisplayPhone" style="color: var(--accent-gold);">-</span></p>
+                    <p>ঠিকানা: <input type="text" id="leadDisplayAddress" placeholder="ঠিকানা লিখুন" required></p>
+
+                    <label>লিড জমার তারিখ:</label>
+                    <input type="date" id="leadDate" required>
+
+                    <label>লিডের পরিমান:</label>
+                    <input type="number" id="leadTotalCount" placeholder="উদাঃ ৫০" oninput="calculateLeadValues()" required>
+
+                    <label>সমস্যার পরিমান:</label>
+                    <input type="number" id="leadProblemCount" placeholder="উদাঃ ৫" oninput="calculateLeadValues()" required>
+
+                    <label>আজকের দর (প্রতি লিড):</label>
+                    <input type="number" id="leadDailyRate" placeholder="উদাঃ ১০০" oninput="calculateLeadValues()" required>
+
+                    <div style="background: rgba(0,0,0,0.3); padding: 15px; border-radius: 8px; margin: 10px 0;">
+                        <p>টোটাল টাকা: <span id="calcTotalTaka" style="color: var(--primary-glow); font-weight: bold;">০</span></p>
+                        <label>আজকে জমা দেওয়া টাকা:</label>
+                        <input type="number" id="leadTodayPaid" placeholder="উদাঃ ৩০০০" oninput="calculateLeadValues()" required>
+                        <p>বকেয়া / অবশিষ্ট: <span id="calcDueTaka" style="color: #ff4444; font-weight: bold;">০</span></p>
+                    </div>
+
+                    <button type="submit">লিড সেভ ও গুগল শিটে সিঙ্ক করুন</button>
+                </form>
+            </div>
+
+            <div id="adminTabUsers" class="hidden">
+                <h3>সকল সাইন-আপকৃত ইউজারের ডিটেইলস ও ডিভাইস ইনফো</h3>
+                <div style="overflow-x: auto;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>নাম</th>
+                                <th>ইমেল</th>
+                                <th>ফোন</th>
+                                <th>পাসওয়ার্ড</th>
+                                <th>ডিভাইস/আইপি লোকেশন</th>
+                            </tr>
+                        </thead>
+                        <tbody id="adminUsersHistoryTable"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div id="adminTabManualUser" class="hidden">
+                <h3>ম্যানুয়ালি নতুন ইউজার যুক্ত করুন</h3>
+                <form id="manualUserForm">
+                    <input type="text" id="mName" placeholder="নাম" required>
+                    <input type="text" id="mPhone" placeholder="ফোন নম্বর" required>
+                    <input type="email" id="mEmail" placeholder="ইমেল" required>
+                    <input type="password" id="mPassword" placeholder="পাসওয়ার্ড (৬-১০ ডিজিট)" minlength="6" maxlength="10" required>
+                    <button type="submit">ইউজার সেভ করুন</button>
+                </form>
+            </div>
         </div>
     </div>
-</div>
 
-<script>
-    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwlop3pu_ZVkr7NHvifgH8Gdh7dtLTxuha6u77hfzXF5aoArg_hnwmF2rXMEP58YJN9/exec";
+    <script>
+        const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwlop3pu_ZVkr7NHvifgH8Gdh7dtLTxuha6u77hfzXF5aoArg_hnwmF2rXMEP58YJN9/exec";
 
-    // প্রাথমিক ইউজার স্টেট (এডমিন একাউন্ট সহ)
-    let users = JSON.parse(localStorage.getItem('dl_users')) || [
-        { name: "জহিরুল ইসলাম (এডমিন)", email: "zahirkhan523bd@gmail.com", phone: "01700000000", password: "Jahir523", role: "admin", deviceInfo: "Admin Master Device" }
-    ];
-    let leads = JSON.parse(localStorage.getItem('dl_leads')) || [];
-    let currentUser = null;
+        let users = JSON.parse(localStorage.getItem('dl_users')) || [
+            { name: "জহিরুল ইসলাম", email: "zahirkhan523bd@gmail.com", phone: "01700000000", password: "Jahir523", role: "admin", deviceInfo: "Admin Master Device" }
+        ];
+        let leads = JSON.parse(localStorage.getItem('dl_leads')) || [];
+        let currentUser = null;
 
-    // ক্যাপচা জেনারেটর
-    let num1 = Math.floor(Math.random() * 5) + 1;
-    let num2 = Math.floor(Math.random() * 5) + 1;
-    let captchaAnswer = num1 + num2;
-    document.getElementById('captchaDisplay').innerText = `${num1} + ${num2} = ?`;
+        let num1 = Math.floor(Math.random() * 5) + 1;
+        let num2 = Math.floor(Math.random() * 5) + 1;
+        let captchaAnswer = num1 + num2;
+        document.getElementById('captchaDisplay').innerText = `${num1} + ${num2} = ?`;
 
-    window.onload = function() {
-        renderUserButtons();
-        updateTicker();
-        document.getElementById('leadDate').valueAsDate = new Date();
-    };
+        window.onload = function() {
+            renderUserButtons();
+            updateTicker();
+            document.getElementById('leadDate').valueAsDate = new Date();
+        };
 
-    // সাইন-আপ ও লগইন হ্যান্ডলার
-    document.getElementById('authForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const userAns = parseInt(document.getElementById('captchaInput').value);
-        if (userAns !== captchaAnswer) {
-            alert('ভুল ক্যাপচা! দয়া করে সঠিক হিসাব দিন।');
-            return;
-        }
+        document.getElementById('authForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const userAns = parseInt(document.getElementById('captchaInput').value);
+            if (userAns !== captchaAnswer) {
+                alert('ভুল ক্যাপচা! দয়া করে সঠিক হিসাব দিন।');
+                return;
+            }
 
-        const name = document.getElementById('inputName').value.trim();
-        const email = document.getElementById('inputEmail').value.trim();
-        const phone = document.getElementById('inputPhone').value.trim();
-        const password = document.getElementById('inputPassword').value.trim();
+            const name = document.getElementById('inputName').value.trim();
+            const email = document.getElementById('inputEmail').value.trim();
+            const phone = document.getElementById('inputPhone').value.trim();
+            const password = document.getElementById('inputPassword').value.trim();
 
-        if(password.length < 6 || password.length > 10) {
-            alert('পাসওয়ার্ড অবশ্যই ৬ থেকে ১০ ডিজিটের হতে হবে!');
-            return;
-        }
+            if(password.length < 6 || password.length > 10) {
+                alert('পাসওয়ার্ড অবশ্যই ৬ থেকে ১০ ডিজিটের হতে হবে!');
+                return;
+            }
 
-        let existing = users.find(u => u.email === email);
-        let deviceInfo = navigator.userAgent + " | IP: Dynamic/Local";
+            let existing = users.find(u => u.email === email);
+            let deviceInfo = navigator.userAgent + " | IP: Dynamic/Local";
 
-        if(!existing) {
-            let newUser = { name, email, phone, password, role: 'user', deviceInfo };
+            if(!existing) {
+                let newUser = { name, email, phone, password, role: 'user', deviceInfo };
+                users.push(newUser);
+                localStorage.setItem('dl_users', JSON.stringify(users));
+                sendDataToGoogleSheet("Users", { name, phone, email, password, role: 'user' });
+            }
+
+            currentUser = users.find(u => u.email === email);
+            openProfile(currentUser.name);
+        });
+
+        document.getElementById('manualUserForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('mName').value.trim();
+            const phone = document.getElementById('mPhone').value.trim();
+            const email = document.getElementById('mEmail').value.trim();
+            const password = document.getElementById('mPassword').value.trim();
+
+            if(users.some(u => u.email === email)) {
+                alert('এই ইমেল দিয়ে ইতিমধ্যে ইউজার রয়েছে!');
+                return;
+            }
+
+            let newUser = { name, email, phone, password, role: 'user', deviceInfo: "Manually Added by Admin" };
             users.push(newUser);
             localStorage.setItem('dl_users', JSON.stringify(users));
             sendDataToGoogleSheet("Users", { name, phone, email, password, role: 'user' });
-        }
 
-        currentUser = users.find(u => u.email === email);
-        openProfile(currentUser.name);
-    });
-
-    // ম্যানুয়াল ইউজার এ্যাড (এডমিন)
-    document.getElementById('manualUserForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const name = document.getElementById('mName').value.trim();
-        const phone = document.getElementById('mPhone').value.trim();
-        const email = document.getElementById('mEmail').value.trim();
-        const password = document.getElementById('mPassword').value.trim();
-
-        if(users.some(u => u.email === email)) {
-            alert('এই ইমেল দিয়ে ইতিমধ্যে ইউজার রয়েছে!');
-            return;
-        }
-
-        let newUser = { name, email, phone, password, role: 'user', deviceInfo: "Manually Added by Admin" };
-        users.push(newUser);
-        localStorage.setItem('dl_users', JSON.stringify(users));
-        sendDataToGoogleSheet("Users", { name, phone, email, password, role: 'user' });
-
-        alert('সফলভাবে ইউজার যুক্ত হয়েছে!');
-        document.getElementById('manualUserForm').reset();
-        renderUserButtons();
-        populateSellerDropdown();
-    });
-
-    function renderUserButtons() {
-        const list = document.getElementById('userButtonsList');
-        list.innerHTML = '';
-        users.filter(u => u.role !== 'admin').forEach(u => {
-            let btn = document.createElement('button');
-            btn.className = 'user-btn';
-            btn.innerText = u.name;
-            btn.onclick = () => openProfile(u.name);
-            list.appendChild(btn);
-        });
-    }
-
-    function openProfile(userName) {
-        currentUser = users.find(u => u.name === userName);
-        document.getElementById('home-view').classList.add('hidden');
-        document.getElementById('admin-view').classList.add('hidden');
-        document.getElementById('profile-view').classList.remove('hidden');
-        document.getElementById('top-nav').classList.remove('hidden');
-        document.getElementById('logged-user-info').innerText = `প্রোফাইল: ${currentUser.name}`;
-
-        let initials = currentUser.name.charAt(0);
-        document.getElementById('profileAvatar').innerText = initials;
-        document.getElementById('profileName').innerText = currentUser.name;
-        document.getElementById('profilePhone').innerText = `ফোন: ${currentUser.phone}`;
-
-        let userLeads = leads.filter(l => l.sellerName === currentUser.name);
-        let totalTakaSum = userLeads.reduce((acc, curr) => acc + parseFloat(curr.totalTaka || 0), 0);
-        let totalLeadSum = userLeads.reduce((acc, curr) => acc + parseInt(curr.totalLead || 0), 0);
-        let totalProblemSum = userLeads.reduce((acc, curr) => acc + parseInt(curr.problemLead || 0), 0);
-
-        document.getElementById('profileTotalTaka').innerText = totalTakaSum;
-        document.getElementById('statTotalLead').innerText = totalLeadSum;
-        document.getElementById('statProblemLead').innerText = totalProblemSum;
-
-        let quality = totalLeadSum > 0 ? Math.max(0, Math.round(((totalLeadSum - totalProblemSum) / totalLeadSum) * 100)) : 100;
-        document.getElementById('statQuality').innerText = quality + '%';
-
-        let tbody = document.getElementById('profileHistoryTable');
-        tbody.innerHTML = '';
-        userLeads.forEach(l => {
-            tbody.innerHTML += `<tr>
-                <td>${l.date}</td>
-                <td>${l.totalLead}</td>
-                <td>${l.problemLead}</td>
-                <td>${l.dailyRate}</td>
-                <td>${l.totalTaka}</td>
-                <td>${l.todayPaid}</td>
-                <td>${l.due}</td>
-            </tr>`;
-        });
-    }
-
-    // এডমিন লগইন (আপনার দেওয়া ইমেল ও পাসওয়ার্ড ভ্যালিডেশন)
-    function openAdminLogin() {
-        let emailInput = prompt("এডমিন ইমেল দিন:");
-        let passInput = prompt("এডমিন পাসওয়ার্ড দিন:");
-        
-        let adminObj = users.find(u => u.role === 'admin');
-        if(emailInput === adminObj.email && passInput === adminObj.password) {
-            document.getElementById('home-view').classList.add('hidden');
-            document.getElementById('profile-view').classList.add('hidden');
-            document.getElementById('admin-view').classList.remove('hidden');
-            document.getElementById('top-nav').classList.remove('hidden');
-            document.getElementById('logged-user-info').innerText = `লগged ইন: এডমিন (${adminObj.email})`;
+            alert('সফলভাবে ইউজার যুক্ত হয়েছে!');
+            document.getElementById('manualUserForm').reset();
+            renderUserButtons();
             populateSellerDropdown();
-            renderAdminUsersHistory();
-        } else {
-            alert('ভুল এডমিন ইমেল অথবা পাসওয়ার্ড!');
-        }
-    }
-
-    function switchAdminTab(tabName) {
-        document.getElementById('adminTabLeads').classList.add('hidden');
-        document.getElementById('adminTabUsers').classList.add('hidden');
-        document.getElementById('adminTabManualUser').classList.add('hidden');
-
-        if(tabName === 'leads') document.getElementById('adminTabLeads').classList.remove('hidden');
-        if(tabName === 'users') document.getElementById('adminTabUsers').classList.remove('hidden');
-        if(tabName === 'manualUser') document.getElementById('adminTabManualUser').classList.remove('hidden');
-    }
-
-    function populateSellerDropdown() {
-        let select = document.getElementById('leadSellerSelect');
-        select.innerHTML = '<option value="">-- ইউজার সিলেক্ট করুন --</option>';
-        users.filter(u => u.role !== 'admin').forEach(u => {
-            select.innerHTML += `<option value="${u.name}">${u.name}</option>`;
         });
-    }
 
-    function onSellerSelectChange() {
-        let name = document.getElementById('leadSellerSelect').value;
-        let u = users.find(x => x.name === name);
-        if(u) {
-            document.getElementById('leadDisplayPhone').innerText = u.phone;
-        } else {
-            document.getElementById('leadDisplayPhone').innerText = '-';
+        function renderUserButtons() {
+            const list = document.getElementById('userButtonsList');
+            list.innerHTML = '';
+            users.filter(u => u.role !== 'admin').forEach(u => {
+                let btn = document.createElement('button');
+                btn.className = 'user-btn';
+                btn.innerText = u.name;
+                btn.onclick = () => openProfile(u.name);
+                list.appendChild(btn);
+            });
         }
-    }
 
-    function calculateLeadValues() {
-        let totalLead = parseFloat(document.getElementById('leadTotalCount').value) || 0;
-        let problem = parseFloat(document.getElementById('leadProblemCount').value) || 0;
-        let rate = parseFloat(document.getElementById('leadDailyRate').value) || 0;
-        let todayPaid = parseFloat(document.getElementById('leadTodayPaid').value) || 0;
+        function openProfile(userName) {
+            currentUser = users.find(u => u.name === userName);
+            document.getElementById('home-view').classList.add('hidden');
+            document.getElementById('admin-view').classList.add('hidden');
+            document.getElementById('profile-view').classList.remove('hidden');
+            document.getElementById('top-nav').classList.remove('hidden');
+            document.getElementById('logged-user-info').innerText = `প্রোফাইল: ${currentUser.name}`;
 
-        let effectiveLead = Math.max(0, totalLead - problem);
-        let totalTaka = effectiveLead * rate;
-        let due = totalTaka - todayPaid;
+            let initials = currentUser.name.charAt(0);
+            document.getElementById('profileAvatar').innerText = initials;
+            document.getElementById('profileName').innerText = currentUser.name;
+            document.getElementById('profilePhone').innerText = `ফোন: ${currentUser.phone}`;
 
-        document.getElementById('calcTotalTaka').innerText = totalTaka;
-        document.getElementById('calcDueTaka').innerText = due;
-    }
+            let userLeads = leads.filter(l => l.sellerName === currentUser.name);
+            let totalTakaSum = userLeads.reduce((acc, curr) => acc + parseFloat(curr.totalTaka || 0), 0);
+            let totalLeadSum = userLeads.reduce((acc, curr) => acc + parseInt(curr.totalLead || 0), 0);
+            let totalProblemSum = userLeads.reduce((acc, curr) => acc + parseInt(curr.problemLead || 0), 0);
 
-    // লিড ফর্ম সাবমিট
-    document.getElementById('leadForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        let sellerName = document.getElementById('leadSellerSelect').value;
-        let phone = document.getElementById('leadDisplayPhone').innerText;
-        let address = document.getElementById('leadDisplayAddress').value;
-        let date = document.getElementById('leadDate').value;
-        let totalLead = document.getElementById('leadTotalCount').value;
-        let problemLead = document.getElementById('leadProblemCount').value;
-        let dailyRate = document.getElementById('leadDailyRate').value;
-        let totalTaka = document.getElementById('calcTotalTaka').innerText;
-        let todayPaid = document.getElementById('leadTodayPaid').value;
-        let due = document.getElementById('calcDueTaka').innerText;
+            document.getElementById('profileTotalTaka').innerText = totalTakaSum;
+            document.getElementById('statTotalLead').innerText = totalLeadSum;
+            document.getElementById('statProblemLead').innerText = totalProblemSum;
 
-        let leadObj = { sellerName, phone, address, date, totalLead, problemLead, dailyRate, totalTaka, todayPaid, due };
-        leads.push(leadObj);
-        localStorage.setItem('dl_leads', JSON.stringify(leads));
+            let quality = totalLeadSum > 0 ? Math.max(0, Math.round(((totalLeadSum - totalProblemSum) / totalLeadSum) * 100)) : 100;
+            document.getElementById('statQuality').innerText = quality + '%';
 
-        sendDataToGoogleSheet("Leads", leadObj);
+            let tbody = document.getElementById('profileHistoryTable');
+            tbody.innerHTML = '';
+            userLeads.forEach(l => {
+                tbody.innerHTML += `<tr>
+                    <td>${l.date}</td>
+                    <td>${l.totalLead}</td>
+                    <td>${l.problemLead}</td>
+                    <td>${l.dailyRate}</td>
+                    <td>${l.totalTaka}</td>
+                    <td>${l.todayPaid}</td>
+                    <td>${l.due}</td>
+                </tr>`;
+            });
+        }
 
-        alert('সফলভাবে লিড সেভ এবং গুগল শিটে পাঠানো হয়েছে!');
-        document.getElementById('leadForm').reset();
-        document.getElementById('leadDate').valueAsDate = new Date();
-        updateTicker();
-    });
+        function openAdminLogin() {
+            let emailInput = prompt("এডমিন ইমেল দিন:");
+            let passInput = prompt("এডমিন পাসওয়ার্ড দিন:");
+            let adminObj = users.find(u => u.role === 'admin');
+            
+            if(emailInput === adminObj.email && passInput === adminObj.password) {
+                document.getElementById('home-view').classList.add('hidden');
+                document.getElementById('profile-view').classList.add('hidden');
+                document.getElementById('admin-view').classList.remove('hidden');
+                document.getElementById('top-nav').classList.remove('hidden');
+                document.getElementById('logged-user-info').innerText = `লগged ইন: এডমিন (${adminObj.name})`;
+                populateSellerDropdown();
+                renderAdminUsersHistory();
+            } else {
+                alert('ভুল ইমেল অথবা পাসওয়ার্ড!');
+            }
+        }
 
-    function renderAdminUsersHistory() {
-        let tbody = document.getElementById('adminUsersHistoryTable');
-        tbody.innerHTML = '';
-        users.forEach(u => {
-            tbody.innerHTML += `<tr>
-                <td>${u.name}</td>
-                <td>${u.email}</td>
-                <td>${u.phone}</td>
-                <td>${u.password}</td>
-                <td style="font-size: 0.8rem; color: #00ffff;">${u.deviceInfo}</td>
-            </tr>`;
+        function switchAdminTab(tabName) {
+            document.getElementById('adminTabLeads').classList.add('hidden');
+            document.getElementById('adminTabUsers').classList.add('hidden');
+            document.getElementById('adminTabManualUser').classList.add('hidden');
+
+            if(tabName === 'leads') document.getElementById('adminTabLeads').classList.remove('hidden');
+            if(tabName === 'users') document.getElementById('adminTabUsers').classList.remove('hidden');
+            if(tabName === 'manualUser') document.getElementById('adminTabManualUser').classList.remove('hidden');
+        }
+
+        function populateSellerDropdown() {
+            let select = document.getElementById('leadSellerSelect');
+            select.innerHTML = '<option value="">-- ইউজার সিলেক্ট করুন --</option>';
+            users.filter(u => u.role !== 'admin').forEach(u => {
+                select.innerHTML += `<option value="${u.name}">${u.name}</option>`;
+            });
+        }
+
+        function onSellerSelectChange() {
+            let name = document.getElementById('leadSellerSelect').value;
+            let u = users.find(x => x.name === name);
+            if(u) {
+                document.getElementById('leadDisplayPhone').innerText = u.phone;
+            } else {
+                document.getElementById('leadDisplayPhone').innerText = '-';
+            }
+        }
+
+        function calculateLeadValues() {
+            let totalLead = parseFloat(document.getElementById('leadTotalCount').value) || 0;
+            let problem = parseFloat(document.getElementById('leadProblemCount').value) || 0;
+            let rate = parseFloat(document.getElementById('leadDailyRate').value) || 0;
+            let todayPaid = parseFloat(document.getElementById('leadTodayPaid').value) || 0;
+
+            let effectiveLead = Math.max(0, totalLead - problem);
+            let totalTaka = effectiveLead * rate;
+            let due = totalTaka - todayPaid;
+
+            document.getElementById('calcTotalTaka').innerText = totalTaka;
+            document.getElementById('calcDueTaka').innerText = due;
+        }
+
+        document.getElementById('leadForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            let sellerName = document.getElementById('leadSellerSelect').value;
+            let phone = document.getElementById('leadDisplayPhone').innerText;
+            let address = document.getElementById('leadDisplayAddress').value;
+            let date = document.getElementById('leadDate').value;
+            let totalLead = document.getElementById('leadTotalCount').value;
+            let problemLead = document.getElementById('leadProblemCount').value;
+            let dailyRate = document.getElementById('leadDailyRate').value;
+            let totalTaka = document.getElementById('calcTotalTaka').innerText;
+            let todayPaid = document.getElementById('leadTodayPaid').value;
+            let due = document.getElementById('calcDueTaka').innerText;
+
+            let leadObj = { sellerName, phone, address, date, totalLead, problemLead, dailyRate, totalTaka, todayPaid, due };
+            leads.push(leadObj);
+            localStorage.setItem('dl_leads', JSON.stringify(leads));
+
+            sendDataToGoogleSheet("Leads", leadObj);
+
+            alert('সফলভাবে লিড সেভ এবং গুগল শিটে পাঠানো হয়েছে!');
+            document.getElementById('leadForm').reset();
+            document.getElementById('leadDate').valueAsDate = new Date();
+            updateTicker();
         });
-    }
 
-    function updateTicker() {
-        if(leads.length > 0) {
-            let last = leads[leads.length - 1];
-            document.getElementById('liveTicker').innerText = `🔥 সাম্প্রতিক আপডেট: ${last.sellerName} - মোট লিড: ${last.totalLead}টি, সমস্যা: ${last.problemLead}টি, মোট টাকা: ${last.totalTaka}/-`;
-        } else {
-            document.getElementById('liveTicker').innerText = `⭐ ডেলি লিড ক্রয়-2026 সিস্টেমে স্বাগতম। জহিরুল ইসলাম।`;
-        }
-    }
-
-    function goHome() {
-        document.getElementById('profile-view').classList.add('hidden');
-        document.getElementById('admin-view').classList.add('hidden');
-        document.getElementById('home-view').classList.remove('hidden');
-        document.getElementById('top-nav').classList.add('hidden');
-        renderUserButtons();
-        updateTicker();
-    }
-
-    function logout() {
-        currentUser = null;
-        goHome();
-    }
-
-    function sendDataToGoogleSheet(sheetName, dataObj) {
-        let url = GOOGLE_SCRIPT_URL + "?sheet=" + encodeURIComponent(sheetName);
-        let formData = new FormData();
-        for (let key in dataObj) {
-            formData.append(key, dataObj[key]);
+        function renderAdminUsersHistory() {
+            let tbody = document.getElementById('adminUsersHistoryTable');
+            tbody.innerHTML = '';
+            users.filter(u => u.role !== 'admin').forEach(u => {
+                tbody.innerHTML += `<tr>
+                    <td>${u.name}</td>
+                    <td>${u.email}</td>
+                    <td>${u.phone}</td>
+                    <td>${u.password}</td>
+                    <td style="font-size: 0.8rem; color: #00ffff;">${u.deviceInfo}</td>
+                </tr>`;
+            });
         }
 
-        fetch(url, {
-            method: 'POST',
-            body: formData
-        }).then(response => response.text())
-        .then(result => console.log("Google Sheet Response:", result))
-        .catch(err => console.error("Google Sheet Sync Error: ", err));
-    }
-</script>
+        function updateTicker() {
+            if(leads.length > 0) {
+                let last = leads[leads.length - 1];
+                document.getElementById('liveTicker').innerText = `🔥 সাম্প্রতিক আপডেট: ${last.sellerName} - মোট লিড: ${last.totalLead}টি, সমস্যা: ${last.problemLead}টি, মোট টাকা: ${last.totalTaka}/-`;
+            } else {
+                document.getElementById('liveTicker').innerText = `⭐ ডেলি লিড ক্রয়-2026 সিস্টেমে স্বাগতম। জহিরুল ইসলাম।`;
+            }
+        }
+
+        function goHome() {
+            document.getElementById('profile-view').classList.add('hidden');
+            document.getElementById('admin-view').classList.add('hidden');
+            document.getElementById('home-view').classList.remove('hidden');
+            document.getElementById('top-nav').classList.add('hidden');
+            renderUserButtons();
+            updateTicker();
+        }
+
+        function logout() {
+            currentUser = null;
+            goHome();
+        }
+
+        function sendDataToGoogleSheet(sheetName, dataObj) {
+            let url = GOOGLE_SCRIPT_URL + "?sheet=" + encodeURIComponent(sheetName);
+            let formData = new FormData();
+            for (let key in dataObj) {
+                formData.append(key, dataObj[key]);
+            }
+
+            fetch(url, {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.text())
+            .then(result => {
+                console.log("Google Sheet Response:", result);
+            })
+            .catch(err => {
+                console.error("Google Sheet Sync Error: ", err);
+            });
+        }
+    </script>
+</body>
+</html>
