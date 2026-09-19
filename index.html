@@ -16,7 +16,7 @@
         
         <!-- Header & Mode Switcher -->
         <div class="flex flex-col md:flex-row justify-between items-center mb-6 border-b pb-4">
-            <h1 class="text-2xl md:text-3xl font-bold text-indigo-700">📋 ডেলি লিড ক্রয়-২০২৬</h1>
+            <h1 class="text-2xl md:text-3xl font-bold text-indigo-700">📋 ডেইলি লিড ক্রয়-২০২৬</h1>
             <div class="mt-3 md:mt-0 flex items-center gap-3">
                 <span class="text-sm font-semibold text-gray-600">মোড:</span>
                 <select id="userRole" onchange="toggleRole()" class="border rounded-lg px-3 py-1.5 text-sm bg-indigo-50 text-indigo-700 font-medium">
@@ -106,7 +106,7 @@
                         <th class="p-3">টোটাল</th>
                         <th class="p-3">জমা</th>
                         <th class="p-3">বকেয়া</th>
-                        <th class="p-3 text-center">কার্যing</th>
+                        <th class="p-3 text-center">কার্যক্রম</th>
                     </tr>
                 </thead>
                 <tbody id="leadTableBody" class="text-sm divide-y divide-gray-200">
@@ -131,6 +131,8 @@
     </div>
 
     <script>
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzZkA5XX6hRoCiii6jc4K29sIwE9Mmmseb1HngEo0tJb1cENTMBhVQwFi-fo22ZKAE8Cg/exec";
+        
         let leads = JSON.parse(localStorage.getItem('leadsData')) || [];
 
         function toggleRole() {
@@ -177,8 +179,27 @@
 
             if (editIndex === "") {
                 leads.push(leadData);
+                
+                // গুগল শিটে ডাটা পাঠানোর কোড
+                fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(leadData)
+                })
+                .then(() => {
+                    console.log('Google Sheet updated successfully');
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+
+                alert('সফলভাবে ডাটা সংরক্ষিত হয়েছে এবং গুগল শিটে পাঠানো হয়েছে!');
             } else {
                 leads[editIndex] = leadData;
+                alert('এন্ট্রি সফলভাবে আপডেট করা হয়েছে!');
             }
 
             localStorage.setItem('leadsData', JSON.stringify(leads));
