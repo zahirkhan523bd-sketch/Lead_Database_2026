@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ডেইলি লিড ক্রয়-২০২৬</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: 'SolaimanLipi', Arial, sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen p-4 md:p-8">
+
+    <div class="max-w-5xl mx-auto bg-white shadow-lg rounded-xl p-6 md:p-8">
+        
+        <!-- Header & Mode Switcher -->
+        <div class="flex flex-col md:flex-row justify-between items-center mb-6 border-b pb-4">
+            <h1 class="text-2xl md:text-3xl font-bold text-indigo-700">📋 ডেলি লিড ক্রয়-২০২৬</h1>
+            <div class="mt-3 md:mt-0 flex items-center gap-3">
+                <span class="text-sm font-semibold text-gray-600">মোড:</span>
+                <select id="userRole" onchange="toggleRole()" class="border rounded-lg px-3 py-1.5 text-sm bg-indigo-50 text-indigo-700 font-medium">
+                    <option value="user">ইউজার (ভিউ ও প্রিভিউ)</option>
+                    <option value="admin">এডমিন (এন্ট্রি ও এডিট)</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Input Form (Admin Only) -->
+        <div id="formSection" class="bg-indigo-50/50 p-5 rounded-xl border border-indigo-100 mb-8 hidden">
+            <h2 class="text-lg font-semibold text-indigo-800 mb-4">নতুন হিসাব এন্ট্রি করুন</h2>
+            <form id="leadForm" onsubmit="saveLead(event)" class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <input type="hidden" id="editIndex">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">১. সেলার নাম *</label>
+                    <input type="text" id="sellerName" required class="w-full border rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-indigo-500 outline-none">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">২. লিড জেনারেটর ঠিকানা (অপশনাল)</label>
+                    <input type="text" id="generatorAddress" class="w-full border rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-indigo-500 outline-none">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">৩. দেশের নাম *</label>
+                    <input type="text" id="countryName" required class="w-full border rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-indigo-500 outline-none">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">৪. ফোন নম্বর *</label>
+                    <input type="text" id="phoneNumber" required class="w-full border rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-indigo-500 outline-none">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">৫. লিড জমার তারিখ *</label>
+                    <input type="date" id="leadDate" required class="w-full border rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-indigo-500 outline-none">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">৬. লিডের পরিমাণ *</label>
+                    <input type="number" id="leadQty" oninput="calculateTotal()" required class="w-full border rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-indigo-500 outline-none">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">৭. সমস্যার পরিমাণ</label>
+                    <input type="number" id="issueQty" value="0" class="w-full border rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-indigo-500 outline-none">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">৮. আজকের দর *</label>
+                    <input type="number" step="0.01" id="unitPrice" oninput="calculateTotal()" required class="w-full border rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-indigo-500 outline-none">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">৯. টোটাল টাকা (অটো)</label>
+                    <input type="number" step="0.01" id="totalAmount" readonly class="w-full border rounded-lg px-3 py-2 text-sm bg-gray-100 outline-none font-bold text-indigo-600">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">১০. আজকে জমা *</label>
+                    <input type="number" step="0.01" id="todayPaid" oninput="calculateTotal()" required class="w-full border rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-indigo-500 outline-none">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">১১. বকেয়া আছে (অটো)</label>
+                    <input type="number" step="0.01" id="dueAmount" readonly class="w-full border rounded-lg px-3 py-2 text-sm bg-gray-100 outline-none font-bold text-red-600">
+                </div>
+                <div class="md:col-span-3 flex justify-end gap-2 mt-2">
+                    <button type="button" onclick="resetForm()" class="bg-gray-300 hover:bg-gray-400 text-gray-800 px-4 py-2 rounded-lg text-sm font-medium transition">রিসেট</button>
+                    <button type="submit" id="submitBtn" class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-2 rounded-lg text-sm font-medium transition">সংরক্ষণ করুন</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Filter & Search Section -->
+        <div class="flex flex-col md:flex-row justify-between items-center gap-4 mb-6">
+            <div class="w-full md:w-1/2">
+                <label class="block text-xs font-semibold text-gray-600 mb-1">সেলার নাম অনুযায়ী ফিল্টার / সার্চ:</label>
+                <input type="text" id="searchSeller" onkeyup="renderTable()" placeholder="সেলার নাম লিখে খুঁজুন..." class="w-full border rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-indigo-500 outline-none">
+            </div>
+            <div class="text-right w-full md:w-auto">
+                <span class="text-sm text-gray-600">মোট এন্ট্রি: <strong id="totalEntries" class="text-indigo-600">০</strong></span>
+            </div>
+        </div>
+
+        <!-- Data Table -->
+        <div class="overflow-x-auto border rounded-xl shadow-sm">
+            <table class="w-full text-left border-collapse">
+                <thead>
+                    <tr class="bg-indigo-600 text-white text-xs md:text-sm">
+                        <th class="p-3">তারিখ</th>
+                        <th class="p-3">সেলার নাম</th>
+                        <th class="p-3">দেশ</th>
+                        <th class="p-3">লিড</th>
+                        <th class="p-3">দর</th>
+                        <th class="p-3">টোটাল</th>
+                        <th class="p-3">জমা</th>
+                        <th class="p-3">বকেয়া</th>
+                        <th class="p-3 text-center">কার্যing</th>
+                    </tr>
+                </thead>
+                <tbody id="leadTableBody" class="text-sm divide-y divide-gray-200">
+                    <!-- JavaScript দিয়ে ডাটা লোড হবে -->
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <!-- Preview Modal -->
+    <div id="previewModal" class="fixed inset-0 bg-black/50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl relative">
+            <h3 class="text-xl font-bold text-indigo-700 mb-4 border-b pb-2">📄 সেলারের হিসাবের প্রিভিউ</h3>
+            <div id="previewContent" class="space-y-2 text-sm text-gray-700 mb-6 max-h-96 overflow-y-auto">
+                <!-- প্রিভিউ ডিটেইলস -->
+            </div>
+            <div class="flex justify-end gap-3">
+                <button onclick="closePreview()" class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded-lg text-sm">বন্ধ করুন</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let leads = JSON.parse(localStorage.getItem('leadsData')) || [];
+
+        function toggleRole() {
+            const role = document.getElementById('userRole').value;
+            const formSection = document.getElementById('formSection');
+            if (role === 'admin') {
+                formSection.classList.remove('hidden');
+            } else {
+                formSection.classList.add('hidden');
+                resetForm();
+            }
+            renderTable();
+        }
+
+        function calculateTotal() {
+            let qty = parseFloat(document.getElementById('leadQty').value) || 0;
+            let price = parseFloat(document.getElementById('unitPrice').value) || 0;
+            let paid = parseFloat(document.getElementById('todayPaid').value) || 0;
+            
+            let total = qty * price;
+            let due = total - paid;
+
+            document.getElementById('totalAmount').value = total.toFixed(2);
+            document.getElementById('dueAmount').value = due.toFixed(2);
+        }
+
+        function saveLead(event) {
+            event.preventDefault();
+            let editIndex = document.getElementById('editIndex').value;
+
+            let leadData = {
+                sellerName: document.getElementById('sellerName').value,
+                generatorAddress: document.getElementById('generatorAddress').value,
+                countryName: document.getElementById('countryName').value,
+                phoneNumber: document.getElementById('phoneNumber').value,
+                leadDate: document.getElementById('leadDate').value,
+                leadQty: document.getElementById('leadQty').value,
+                issueQty: document.getElementById('issueQty').value,
+                unitPrice: document.getElementById('unitPrice').value,
+                totalAmount: document.getElementById('totalAmount').value,
+                todayPaid: document.getElementById('todayPaid').value,
+                dueAmount: document.getElementById('dueAmount').value
+            };
+
+            if (editIndex === "") {
+                leads.push(leadData);
+            } else {
+                leads[editIndex] = leadData;
+            }
+
+            localStorage.setItem('leadsData', JSON.stringify(leads));
+            resetForm();
+            renderTable();
+        }
+
+        function renderTable() {
+            let tbody = document.getElementById('leadTableBody');
+            let search = document.getElementById('searchSeller').value.toLowerCase();
+            let role = document.getElementById('userRole').value;
+            tbody.innerHTML = "";
+
+            let filteredLeads = leads.filter(item => item.sellerName.toLowerCase().includes(search));
+            document.getElementById('totalEntries').innerText = filteredLeads.length;
+
+            if (filteredLeads.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="9" class="text-center p-4 text-gray-500">কোনো তথ্য পাওয়া যায়নি</td></tr>`;
+                return;
+            }
+
+            filteredLeads.forEach((item, index) => {
+                let actualIndex = leads.indexOf(item);
+                let tr = document.createElement('tr');
+                tr.className = "hover:bg-gray-50 transition";
+                tr.innerHTML = `
+                    <td class="p-3">${item.leadDate}</td>
+                    <td class="p-3 font-medium text-gray-800">${item.sellerName}</td>
+                    <td class="p-3">${item.countryName}</td>
+                    <td class="p-3">${item.leadQty}</td>
+                    <td class="p-3">৳${item.unitPrice}</td>
+                    <td class="p-3 font-semibold text-indigo-600">৳${item.totalAmount}</td>
+                    <td class="p-3 text-green-600">৳${item.todayPaid}</td>
+                    <td class="p-3 text-red-600">৳${item.dueAmount}</td>
+                    <td class="p-3 text-center flex justify-center gap-2">
+                        <button onclick="previewSeller('${item.sellerName}')" class="bg-blue-500 hover:bg-blue-600 text-white px-2.5 py-1 rounded text-xs">প্রিভিউ</button>
+                        ${role === 'admin' ? `
+                            <button onclick="editLead(${actualIndex})" class="bg-amber-500 hover:bg-amber-600 text-white px-2.5 py-1 rounded text-xs">এডিট</button>
+                            <button onclick="deleteLead(${actualIndex})" class="bg-red-500 hover:bg-red-600 text-white px-2.5 py-1 rounded text-xs">ডিলিট</button>
+                        ` : ''}
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function editLead(index) {
+            let item = leads[index];
+            document.getElementById('editIndex').value = index;
+            document.getElementById('sellerName').value = item.sellerName;
+            document.getElementById('generatorAddress').value = item.generatorAddress;
+            document.getElementById('countryName').value = item.countryName;
+            document.getElementById('phoneNumber').value = item.phoneNumber;
+            document.getElementById('leadDate').value = item.leadDate;
+            document.getElementById('leadQty').value = item.leadQty;
+            document.getElementById('issueQty').value = item.issueQty;
+            document.getElementById('unitPrice').value = item.unitPrice;
+            document.getElementById('totalAmount').value = item.totalAmount;
+            document.getElementById('todayPaid').value = item.todayPaid;
+            document.getElementById('dueAmount').value = item.dueAmount;
+            document.getElementById('submitBtn').innerText = "আপডেট করুন";
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function deleteLead(index) {
+            if (confirm('আপনি কি নিশ্চিতভাবে এই এন্ট্রিটি ডিলিট করতে চান?')) {
+                leads.splice(index, 1);
+                localStorage.setItem('leadsData', JSON.stringify(leads));
+                renderTable();
+            }
+        }
+
+        function resetForm() {
+            document.getElementById('leadForm').reset();
+            document.getElementById('editIndex').value = "";
+            document.getElementById('submitBtn').innerText = "সংরক্ষণ করুন";
+            document.getElementById('totalAmount').value = "";
+            document.getElementById('dueAmount').value = "";
+        }
+
+        function previewSeller(sellerName) {
+            let sellerLeads = leads.filter(i => i.sellerName.toLowerCase() === sellerName.toLowerCase());
+            let contentDiv = document.getElementById('previewContent');
+            
+            let totalLead = sellerLeads.reduce((sum, i) => sum + parseFloat(i.leadQty || 0), 0);
+            let totalAmt = sellerLeads.reduce((sum, i) => sum + parseFloat(i.totalAmount || 0), 0);
+            let totalPaid = sellerLeads.reduce((sum, i) => sum + parseFloat(i.todayPaid || 0), 0);
+            let totalDue = sellerLeads.reduce((sum, i) => sum + parseFloat(i.dueAmount || 0), 0);
+
+            let html = `<p class="font-bold text-base mb-2 text-indigo-600">সেলার: ${sellerName}</p>`;
+            html += `<p>মোট এন্ট্রি সংখ্যা: <b>${sellerLeads.length}টি</b></p>`;
+            html += `<p>সর্বমোট লিড: <b>${totalLead}</b></p>`;
+            html += `<p>সর্বমোট টাকা: <b>৳${totalAmt.toFixed(2)}</b></p>`;
+            html += `<p>সর্বমোট পরিশোধ: <b class="text-green-600">৳${totalPaid.toFixed(2)}</b></p>`;
+            html += `<p>সর্বমোট বকেয়া: <b class="text-red-600">৳${totalDue.toFixed(2)}</b></p>`;
+            
+            html += `<div class="mt-4 border-t pt-2"><p class="font-semibold mb-1">বিস্তারিত বিবরণ:</p>`;
+            sellerLeads.forEach((l, idx) => {
+                html += `<div class="bg-gray-50 p-2 rounded mb-2 text-xs">
+                    তারিখ: ${l.leadDate} | লিড: ${l.leadQty} | টোটাল: ৳${l.totalAmount} | বকেয়া: ৳${l.dueAmount}
+                </div>`;
+            });
+            html += `</div>`;
+
+            contentDiv.innerHTML = html;
+            document.getElementById('previewModal').classList.remove('hidden');
+        }
+
+        function closePreview() {
+            document.getElementById('previewModal').classList.add('hidden');
+        }
+
+        // Initial Load
+        renderTable();
+    </script>
+</body>
+</html>
